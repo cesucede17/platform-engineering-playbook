@@ -1,0 +1,870 @@
+{
+  "version": 1,
+  "descripcion": "Skills de los proyectos de tipo 'plataforma'. kit.py selecciona de aquí según las opciones. Campo 'cuando': 'siempre' o lista de opciones (basta una; 'a+b' exige las dos).",
+  "marketplaces": {
+    "claude-plugins-official": "anthropics/claude-plugins-official",
+    "superpowers-marketplace": "obra/superpowers-marketplace",
+    "trailofbits": "trailofbits/skills",
+    "claude-code-workflows": "wshobson/agents",
+    "anthropic-agent-skills": "anthropics/skills"
+  },
+  "fases": {
+    "plataforma": [
+      "arranque",
+      "diseño",
+      "plan",
+      "contrato",
+      "back",
+      "front",
+      "tests",
+      "revisión",
+      "seguridad",
+      "documentación",
+      "despliegue",
+      "operación"
+    ]
+  },
+  "opciones": {
+    "python": "Código en Python (implícita en ML)",
+    "typescript": "Código en TypeScript / Node",
+    "front": "Tiene interfaz web",
+    "react": "La interfaz usa React",
+    "api": "Expone una API HTTP (en ML: el modelo se sirve por API)",
+    "bd": "Base de datos relacional con migraciones",
+    "llm": "Usa LLMs (API de Claude u otros), RAG o prompts",
+    "airflow": "Orquestación con Airflow",
+    "big_data": "Datos grandes (> 50 GB), Spark",
+    "k8s": "Despliegue en Kubernetes",
+    "iac": "Infraestructura como código (Terraform)",
+    "gitlab": "Repositorio y CI en GitLab",
+    "github": "Repositorio y CI en GitHub",
+    "office": "Entrada o salida en Excel, Word, PowerPoint o PDF"
+  },
+  "implicitas": {
+    "plataforma": [
+      "api"
+    ]
+  },
+  "componentes": [
+    {
+      "id": "brainstorming",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "diseño"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "writing-plans",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "plan"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "using-git-worktrees",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "plan"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "test-driven-development",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "datos",
+        "entrenamiento",
+        "back",
+        "front"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "systematic-debugging",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "tests"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "requesting-code-review",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "revisión"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "verification-before-completion",
+      "tipo": "skill",
+      "plugin": "superpowers@superpowers-marketplace",
+      "fases": [
+        "validación",
+        "tests",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "airflow-dag-patterns",
+      "tipo": "skill",
+      "plugin": "data-engineering@claude-code-workflows",
+      "fases": [
+        "datos",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "airflow"
+        ]
+      }
+    },
+    {
+      "id": "spark-optimization",
+      "tipo": "skill",
+      "plugin": "data-engineering@claude-code-workflows",
+      "fases": [
+        "datos"
+      ],
+      "cuando": {
+        "plataforma": [
+          "big_data"
+        ]
+      }
+    },
+    {
+      "id": "python-project-structure",
+      "tipo": "skill",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "arranque"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python"
+        ]
+      }
+    },
+    {
+      "id": "uv-package-manager",
+      "tipo": "skill",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "arranque"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python"
+        ]
+      }
+    },
+    {
+      "id": "python-configuration",
+      "tipo": "skill",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "arranque"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python"
+        ]
+      }
+    },
+    {
+      "id": "python-type-safety",
+      "tipo": "skill",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "datos",
+        "back"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python"
+        ]
+      }
+    },
+    {
+      "id": "python-testing-patterns",
+      "tipo": "skill",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "tests"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python"
+        ]
+      }
+    },
+    {
+      "id": "python-observability",
+      "tipo": "skill",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "operación"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python"
+        ]
+      }
+    },
+    {
+      "id": "fastapi-pro",
+      "tipo": "agente",
+      "plugin": "python-development@claude-code-workflows",
+      "fases": [
+        "back",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "python+api"
+        ]
+      }
+    },
+    {
+      "id": "typescript-advanced-types",
+      "tipo": "skill",
+      "plugin": "javascript-typescript@claude-code-workflows",
+      "fases": [
+        "back",
+        "front"
+      ],
+      "cuando": {
+        "plataforma": [
+          "typescript"
+        ]
+      }
+    },
+    {
+      "id": "nodejs-backend-patterns",
+      "tipo": "skill",
+      "plugin": "javascript-typescript@claude-code-workflows",
+      "fases": [
+        "back"
+      ],
+      "cuando": {
+        "plataforma": [
+          "typescript"
+        ]
+      }
+    },
+    {
+      "id": "javascript-testing-patterns",
+      "tipo": "skill",
+      "plugin": "javascript-typescript@claude-code-workflows",
+      "fases": [
+        "tests"
+      ],
+      "cuando": {
+        "plataforma": [
+          "typescript",
+          "front"
+        ]
+      }
+    },
+    {
+      "id": "architecture-patterns",
+      "tipo": "skill",
+      "plugin": "backend-development@claude-code-workflows",
+      "fases": [
+        "diseño"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "api-design-principles",
+      "tipo": "skill",
+      "plugin": "backend-development@claude-code-workflows",
+      "fases": [
+        "contrato"
+      ],
+      "cuando": {
+        "plataforma": [
+          "api"
+        ]
+      }
+    },
+    {
+      "id": "backend-security-coder",
+      "tipo": "agente",
+      "plugin": "backend-api-security@claude-code-workflows",
+      "fases": [
+        "back",
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": [
+          "api"
+        ]
+      }
+    },
+    {
+      "id": "api-documenter",
+      "tipo": "agente",
+      "plugin": "api-testing-observability@claude-code-workflows",
+      "fases": [
+        "contrato",
+        "documentación"
+      ],
+      "cuando": {
+        "plataforma": [
+          "api"
+        ]
+      }
+    },
+    {
+      "id": "sql-migrations",
+      "tipo": "comando",
+      "plugin": "database-migrations@claude-code-workflows",
+      "fases": [
+        "contrato"
+      ],
+      "cuando": {
+        "plataforma": [
+          "bd"
+        ]
+      }
+    },
+    {
+      "id": "c4-architecture",
+      "tipo": "comando",
+      "plugin": "c4-architecture@claude-code-workflows",
+      "fases": [
+        "diseño",
+        "documentación"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "frontend-design",
+      "tipo": "skill",
+      "plugin": "frontend-design@claude-plugins-official",
+      "fases": [
+        "front"
+      ],
+      "cuando": {
+        "plataforma": [
+          "front"
+        ]
+      }
+    },
+    {
+      "id": "wcag-audit-patterns",
+      "tipo": "skill",
+      "plugin": "accessibility-compliance@claude-code-workflows",
+      "fases": [
+        "front"
+      ],
+      "cuando": {
+        "plataforma": [
+          "front"
+        ]
+      }
+    },
+    {
+      "id": "frontend-security-coder",
+      "tipo": "agente",
+      "plugin": "frontend-mobile-security@claude-code-workflows",
+      "fases": [
+        "front",
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": [
+          "front"
+        ]
+      }
+    },
+    {
+      "id": "webapp-testing",
+      "tipo": "skill",
+      "plugin": "example-skills@anthropic-agent-skills",
+      "fases": [
+        "tests"
+      ],
+      "cuando": {
+        "plataforma": [
+          "front"
+        ]
+      }
+    },
+    {
+      "id": "react-best-practices",
+      "tipo": "skill",
+      "plugin": "local",
+      "fases": [
+        "front"
+      ],
+      "cuando": {
+        "plataforma": [
+          "react"
+        ]
+      }
+    },
+    {
+      "id": "composition-patterns",
+      "tipo": "skill",
+      "plugin": "local",
+      "fases": [
+        "front"
+      ],
+      "cuando": {
+        "plataforma": [
+          "react"
+        ]
+      }
+    },
+    {
+      "id": "property-based-testing",
+      "tipo": "skill",
+      "plugin": "property-based-testing@trailofbits",
+      "fases": [
+        "datos",
+        "tests"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "feature-dev",
+      "tipo": "comando",
+      "plugin": "feature-dev@claude-plugins-official",
+      "fases": [
+        "plan",
+        "back"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "code-review",
+      "tipo": "comando",
+      "plugin": "code-review@claude-plugins-official",
+      "fases": [
+        "revisión"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "review-pr",
+      "tipo": "comando",
+      "plugin": "pr-review-toolkit@claude-plugins-official",
+      "fases": [
+        "revisión"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "git-workflow",
+      "tipo": "comando",
+      "plugin": "git-pr-workflows@claude-code-workflows",
+      "fases": [
+        "revisión"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "differential-review",
+      "tipo": "skill",
+      "plugin": "differential-review@trailofbits",
+      "fases": [
+        "revisión"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "find-bugs",
+      "tipo": "skill",
+      "plugin": "local",
+      "fases": [
+        "revisión"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "security-review",
+      "tipo": "skill",
+      "plugin": "local",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "skill-scanner",
+      "tipo": "skill",
+      "plugin": "local",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "security-audit",
+      "tipo": "skill",
+      "plugin": "local",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "audit",
+      "tipo": "comando",
+      "plugin": "insecure-defaults@trailofbits",
+      "fases": [
+        "seguridad",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "supply-chain-risk-auditor",
+      "tipo": "skill",
+      "plugin": "supply-chain-risk-auditor@trailofbits",
+      "fases": [
+        "seguridad",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "sharp-edges",
+      "tipo": "skill",
+      "plugin": "sharp-edges@trailofbits",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "semgrep",
+      "tipo": "skill",
+      "plugin": "static-analysis@trailofbits",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "entry-point-analyzer",
+      "tipo": "skill",
+      "plugin": "entry-point-analyzer@trailofbits",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "audit-context-building",
+      "tipo": "skill",
+      "plugin": "audit-context-building@trailofbits",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "variant-analysis",
+      "tipo": "skill",
+      "plugin": "variant-analysis@trailofbits",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "security-guidance",
+      "tipo": "plugin-desactivado",
+      "plugin": "security-guidance@claude-plugins-official",
+      "fases": [
+        "seguridad"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "claude-md-improver",
+      "tipo": "skill",
+      "plugin": "claude-md-management@claude-plugins-official",
+      "fases": [
+        "documentación"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "deployment-pipeline-design",
+      "tipo": "skill",
+      "plugin": "cicd-automation@claude-code-workflows",
+      "fases": [
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "secrets-management",
+      "tipo": "skill",
+      "plugin": "cicd-automation@claude-code-workflows",
+      "fases": [
+        "seguridad",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "gitlab-ci-patterns",
+      "tipo": "skill",
+      "plugin": "cicd-automation@claude-code-workflows",
+      "fases": [
+        "arranque",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "gitlab"
+        ]
+      }
+    },
+    {
+      "id": "github-actions-templates",
+      "tipo": "skill",
+      "plugin": "cicd-automation@claude-code-workflows",
+      "fases": [
+        "arranque",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "github"
+        ]
+      }
+    },
+    {
+      "id": "config-validate",
+      "tipo": "comando",
+      "plugin": "deployment-validation@claude-code-workflows",
+      "fases": [
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "k8s-manifest-generator",
+      "tipo": "skill",
+      "plugin": "kubernetes-operations@claude-code-workflows",
+      "fases": [
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "k8s"
+        ]
+      }
+    },
+    {
+      "id": "k8s-security-policies",
+      "tipo": "skill",
+      "plugin": "kubernetes-operations@claude-code-workflows",
+      "fases": [
+        "seguridad",
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "k8s"
+        ]
+      }
+    },
+    {
+      "id": "terraform-module-library",
+      "tipo": "skill",
+      "plugin": "cloud-infrastructure@claude-code-workflows",
+      "fases": [
+        "despliegue"
+      ],
+      "cuando": {
+        "plataforma": [
+          "iac"
+        ]
+      }
+    },
+    {
+      "id": "slo-implementation",
+      "tipo": "skill",
+      "plugin": "observability-monitoring@claude-code-workflows",
+      "fases": [
+        "operación"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "distributed-tracing",
+      "tipo": "skill",
+      "plugin": "observability-monitoring@claude-code-workflows",
+      "fases": [
+        "operación"
+      ],
+      "cuando": {
+        "plataforma": "siempre"
+      }
+    },
+    {
+      "id": "rag-implementation",
+      "tipo": "skill",
+      "plugin": "llm-application-dev@claude-code-workflows",
+      "fases": [
+        "diseño",
+        "back",
+        "entrenamiento"
+      ],
+      "cuando": {
+        "plataforma": [
+          "llm"
+        ]
+      }
+    },
+    {
+      "id": "prompt-engineering-patterns",
+      "tipo": "skill",
+      "plugin": "llm-application-dev@claude-code-workflows",
+      "fases": [
+        "back",
+        "entrenamiento"
+      ],
+      "cuando": {
+        "plataforma": [
+          "llm"
+        ]
+      }
+    },
+    {
+      "id": "llm-evaluation",
+      "tipo": "skill",
+      "plugin": "llm-application-dev@claude-code-workflows",
+      "fases": [
+        "validación",
+        "tests"
+      ],
+      "cuando": {
+        "plataforma": [
+          "llm"
+        ]
+      }
+    },
+    {
+      "id": "claude-api",
+      "tipo": "skill",
+      "plugin": "claude-api@anthropic-agent-skills",
+      "fases": [
+        "back",
+        "entrenamiento"
+      ],
+      "cuando": {
+        "plataforma": [
+          "llm"
+        ]
+      }
+    },
+    {
+      "id": "xlsx",
+      "tipo": "skill",
+      "plugin": "document-skills@anthropic-agent-skills",
+      "fases": [
+        "datos",
+        "documentación"
+      ],
+      "cuando": {
+        "plataforma": [
+          "office"
+        ]
+      }
+    },
+    {
+      "id": "docx",
+      "tipo": "skill",
+      "plugin": "document-skills@anthropic-agent-skills",
+      "fases": [
+        "documentación"
+      ],
+      "cuando": {
+        "plataforma": [
+          "office"
+        ]
+      }
+    }
+  ]
+}

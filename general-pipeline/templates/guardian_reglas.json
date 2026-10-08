@@ -1,0 +1,19 @@
+{
+  "modo": "prueba",
+  "caducidad_desbloqueo_horas": 2,
+  "home": "{{home}}",
+  "rutas_protegidas": {{rutas_protegidas}},
+  "segmentos_protegidos": {{segmentos_protegidos}},
+  "raices_proyectos": {{raices_proyectos}},
+  "desactivadas": {{desactivadas}},
+  "servidor": {
+    "hosts": {{hosts}},
+    "solo_mirar": [
+      "docker ps", "docker compose ps", "docker logs", "docker compose logs",
+      "git log", "git status", "git rev-parse", "git show",
+      "cat", "ls", "head", "tail", "grep", "df", "free", "uptime",
+      "systemctl status", "journalctl"
+    ],
+    "tras_tuberia": ["grep", "head", "tail", "wc"]
+  }
+}

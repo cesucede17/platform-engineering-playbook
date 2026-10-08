@@ -1,0 +1,10 @@
+{
+  "raices": {{raices}},
+  "excluidos": {{excluidos}},
+  "max_lineas": 40,
+  "max_tareas": 8,
+  "min_mensajes_rescate": 10,
+  "solo_lectura": {{solo_lectura}},
+  "secciones": {{secciones}},
+  "journal_central": "{{journal_central}}"
+}
